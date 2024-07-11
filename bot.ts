@@ -68,11 +68,12 @@ if (require.main === module) {
         // 需要注意的是，验证码事件不是完全即时的，可能有最多10秒的延迟。
         // 这与底层轮询二维码状态的时间间隔有关。
         if (status === types.VerifyCodeStatus.WAITING && scene === types.VerifyCodeScene.LOGIN && id === store.qrcodeKey) {
-          console.log(`receive verify-code event, id: ${id}, message: ${message}, scene: ${types.VerifyCodeScene[scene]} status: ${types.VerifyCodeStatus[status]}`)
+          console.log(`receive verify-code event`)
           const { verifyCode } = await inquirer.prompt([
             {
               type: 'input',
               name: 'verifyCode',
+              prefix: '>',
               message: 'Please enter the verification code:',
             },
           ])
