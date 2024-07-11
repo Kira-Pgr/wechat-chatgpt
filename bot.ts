@@ -70,7 +70,7 @@ if (require.main === module) {
     })
     .on('verify-code', async (id: string, message: string, scene: types.VerifyCodeScene, status: types.VerifyCodeStatus) => {
         // 需要注意的是，验证码事件不是完全即时的，可能有最多10秒的延迟。
-        console.log("verify")
+        console.log("verify", status, scene, id)
         // 这与底层轮询二维码状态的时间间隔有关。
         if (status === types.VerifyCodeStatus.WAITING && scene === types.VerifyCodeScene.LOGIN && id === store.qrcodeKey) {
           console.log(`receive verify-code event`)
