@@ -46,6 +46,10 @@ function handleScan(qrcode: string) {
   console.log(`open https://devtool.tech/api/qrcode?data=${encodeURIComponent(qrcode)}`)
 }
 
+const store = {
+  qrcodeKey: '',
+}
+
 if (require.main === module) {
   const bot = createBot()
 
