@@ -72,7 +72,7 @@ if (require.main === module) {
         // 需要注意的是，验证码事件不是完全即时的，可能有最多10秒的延迟。
         console.log("verify", status, scene, id)
         // 这与底层轮询二维码状态的时间间隔有关。
-        if (status === types.VerifyCodeStatus.WAITING && scene === types.VerifyCodeScene.LOGIN && id === store.qrcodeKey) {
+        //if (status === types.VerifyCodeStatus.WAITING && scene === types.VerifyCodeScene.LOGIN && id === store.qrcodeKey) {
           console.log(`receive verify-code event`)
           const { verifyCode } = await inquirer.prompt([
             {
@@ -92,7 +92,7 @@ if (require.main === module) {
             // 错误关键词：验证码错误次数超过阈值，请重新扫码'
             // 目前不会推送 EXPIRED 事件，需要根据错误内容判断
           }
-        }
+        //}
     })
     .on('login', async (user) => {
       const name = user.name()
