@@ -1,4 +1,4 @@
-import { WechatyBuilder } from 'wechaty'
+import { WechatyBuilder } from '@juzi/wechaty'
 import * as Sentry from '@sentry/node'
 import { MemoryCard } from 'memory-card'
 
